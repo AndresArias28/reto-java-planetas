@@ -45,7 +45,7 @@ public class App {
                         selectPlanet();
                         break;
                     case 2:
-                        selectAirplanet();
+                        selectSpaceship();
                         break;
                     case 3:
                         calcularRecursos();
@@ -72,7 +72,7 @@ public class App {
         System.out.println("1. Marte");
         System.out.println("2. Júpiter");
         System.out.println("3. Saturno");
-        System.out.println("4. Revisar  y ajustar recursos");
+        System.out.println("4. Revisar y ajustar recursos");
         System.out.println("5. exit");
         System.out.println("elige una opción: ");
         var planet = scanner.nextInt();
@@ -125,29 +125,46 @@ public class App {
         }
     }
 
-    private static void adjustResource() {
-        System.out.println("revisar y ajustar recursos");
-        System.out.println("Cuantos litros de oxigeno desea agregar: ");
-        litrosOxigeno = scanner.nextDouble();
-        System.out.println("Cuantas toneladas de combustible desea agregar: ");
-        toneladasCombustible = scanner.nextDouble();
-        System.out.println("Ajuste exitoso");
-        makeAdjust = true;
+    private static void showDataMars() {
+        double estimateTime = calculateTime(distancias[0]);
+        System.out.println("Has seleccionado Marte");
+        System.out.println(  "Marte es el llamado plante rojo en la mitología romana, seleccionado por su color rojizo, este planeta es el cuarto en el sistema solar y el segundo más pequeño después de Mercurio");
+        System.out.println("La distancia a Marte es: " + distancias[0] + " km");
+        System.out.printf( "El tiempo de viaje a una velocidad de %.0f km/h tarda %.2f días%n", velocity, estimateTime);
+        System.out.println("Se necesitan los siguientes recursos para el viaje: ");
+        System.out.printf("Oxígeno: %.2f litros%n", calculateOxygen(estimateTime));
+        System.out.printf("Comida: %.2f kg%n", calculateFood(estimateTime));
+        System.out.printf("Agua: %.2f litros%n", calculateWater(estimateTime));
+        System.out.printf("combustible: %.2f Ton%n", calculateGas(estimateTime));
     }
 
-    private static void showDataPlanets(int planet) {
-        double estimateTime = calculateTime(distances[planet-1]);
-        System.out.println("Has seleccionado planeta " + planets[planet-1]);
-        System.out.println( descriptionPlanets[planet-1] );
-        System.out.println("La distancia a "+planets[planet-1]+" es: " + distances[planet-1] + " km");
-       // System.out.printf("El tiempo de viaje a una velocidad de %.0f km/h tarda %.2f días%n", velocity, estimateTime);
-        System.out.println("Se necesitan los siguientes recursos por persona para el viaje: ");
-        System.out.printf("Oxígeno: %.2f litros%n", calculateResources(estimateTime, averages[0] ));
-        System.out.printf("Comida: %.2f kg%n", calculateResources(estimateTime,  averages[1]));
-        System.out.printf("Agua: %.2f litros%n", calculateResources(estimateTime,  averages[2]));
-        System.out.printf("combustible: %.2f Ton%n", calculateResources(estimateTime,  averages[3]));
-        planetSelected = planet;
+    private static void showDataJupiter() {
+        double estimateTime = calculateTime(distancias[1]);
+        System.out.println("Has seleccionado Júpiter");
+        System.out.println("Júpiter es el planeta mas grande del sistema solar y el segundo mas grande despues de Marte");
+        System.out.println("La distancia a Júpiter es: " + distancias[1] + " km");
+        System.out.printf( "El tiempo de viaje a una velocidad de %.0f km/h tarda %.2f días%n", velocity, estimateTime);
+        System.out.println("Se necesitan los siguientes recursos para el viaje: ");
+        System.out.printf("Oxígeno: %.2f litros%n", calculateOxygen(estimateTime));
+        System.out.printf("Comida: %.2f kg%n", calculateFood(estimateTime));
+        System.out.printf("Agua: %.2f litros%n", calculateWater(estimateTime));
+    }
 
+    private static void showDataSaturn() {
+        double estimateTime = calculateTime(distancias[2]);
+        System.out.println("Has seleccionado Saturno");
+        System.out.println( "Saturno es el planeta mas grande del sistema solar y el tercer mas grande despues de Júpiter");
+        System.out.println("La distancia a Saturno es: " + distancias[2] + " km");
+        System.out.printf( "El tiempo de viaje a una velocidad de %.0f km/h tarda %.2f días%n", velocity, estimateTime);
+        System.out.println("Se necesitan los siguientes recursos para el viaje: ");
+        System.out.printf("Oxígeno: %.2f litros%n", calculateOxygen(estimateTime));
+        System.out.printf("Comida: %.2f kg%n", calculateFood(estimateTime));
+        System.out.printf("Agua: %.2f litros%n", calculateWater(estimateTime));
+
+    }
+
+    private static double calculateOxygen(double dias) {
+        return dias * averageOxygen;
     }
 
     private static double calculateResources(double dias, double estimateAverage ){
@@ -161,7 +178,41 @@ public class App {
 
     }
 
-    public static void selectAirplanet() {
+    public static void selectSpaceship() {
+        System.out.println("\n--- Naves Disponibles ---");
+            System.out.println("1. Revisar capacidad y velocidad de las naves");
+            System.out.println("2. Falcon 9");
+            System.out.println("3. Starship");
+            System.out.println("4. Soyus");
+            System.out.println("5. Exit");
+            System.out.println("Elige una opción");
+            var Spaceship = scanner.nextInt();
+            switch (Spaceship) {
+                case 1:
+                    System.out.println("Falcon 9: Es un vehiculo diseñado y fabricado por SpaceX desarrollado en el año 2011-2013. Cuenta con una capacidad para ocho tripulantes y alcanza una velocidad de 27.000 km/h.");
+                    System.out.println("Starship: En 2023, con la primera Prueba de vuelo integrada, Starship se convirtió en el vehículo más masivo y más poderoso que jamás haya volado. Cuenta con una capacidad para cinco y alcanza una velocidad de 40.000 km/h");
+                    System.out.println("Soyus: Forma parte del programa espacial Soyuz de la antigua Unión Soviética. La nave Soyuz puede llevar una tripulación de hasta tres miembros y alcanza una velocidad de 29.000 km/h");
+                    break;
+                case 2:
+                System.out.println("Has seleccionado la nave Falcon 9 (27.000 km/h y 8 tripulantes)");
+                    break;
+                case 3:
+                System.out.println("Has seleccionado la nave Starship (40.000 km/h y cinco tripulantes)");
+                    break;
+                case 4:
+                System.out.println("Has seleccionado la nave Soyus (29.000 y tres tripulantes)");
+                    break;
+                case 5:
+                System.out.println("Has salido del programa");
+                break;
+                default:
+                System.out.println("Opcion no valida");
+                    break;
+            }
+            
+
+        
+
         System.out.println("\n--- ships Disponibles ---");
         for (int i = 0; i < ships.length; i++) {
             System.out.printf("%d. %s (%.0f km/h)\n", i + 1, ships[i], velocitysShip[i]);
