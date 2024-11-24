@@ -6,13 +6,13 @@ public class App {
     // planets description
     static String[] descriptionPlanets = { 
         "Marte es el llamado planeta rojo en la mitología romana, seleccionado por su color rojizo, este planeta es el cuarto en el sistema solar y el segundo más pequeño después de Mercurio",
-        " Júpiter es el planeta mas grande del sistema solar y el segundo mas grande despues de Marte",
-        "Saturno es el planeta mas grande del sistema solar y el tercer mas grande despues de Júpiter"
+        "Júpiter es el planeta mas grande del sistema solar",
+        "Saturno es conocido por sus iconicos anillos"
      };
     // Datos de nave
-    static String[] ships = { "Falcon 9", "Starship", "SLS" };
+    static String[] ships = { "Falcon 9", "Starship", "Soyus" };
     static double[] velocitysShip = { 27_000, 40_000, 29_000 }; // en km/h
-    static int[] capacidadPasajeros= { 2, 4, 3};
+    static int[] capacidadPasajeros= { 8, 5, 3};
     // Datos de planetas
     static String[]   planets= { "Marte", "Jupiter", "Saturno"};
     static double velocity = 100_000; // km/h
@@ -194,7 +194,7 @@ public class App {
                     System.out.println("Soyus: Forma parte del programa espacial Soyuz de la antigua Unión Soviética. La nave Soyuz puede llevar una tripulación de hasta tres miembros y alcanza una velocidad de 29.000 km/h");
                     break;
                 case 2:
-                System.out.println("Has seleccionado la nave Falcon 9 (27.000 km/h y 8 tripulantes)");
+                System.out.println("Has seleccionado la nave Falcon 9 (27.000 km/h y ocho tripulantes)");
                     break;
                 case 3:
                 System.out.println("Has seleccionado la nave Starship (40.000 km/h y cinco tripulantes)");
